@@ -1,0 +1,111 @@
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #0d0b0bef;
+  color: rgb(255, 251, 0);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 8vw;
+  padding: 1vw 2vw;
+  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  height: auto; /* Allow flexible height */
+}
+
+nav.shrink {
+  background-color: rgba(0, 0, 0, 0.85);
+  min-height: 5vw;
+  padding: 0.5vw 2vw;
+}
+
+nav h1 {
+  font-size: 5vw;
+  font-weight: 900;
+  font-family: var(--font-1);
+  margin: 0;
+  transition: font-size 0.3s ease, font-weight 0.3s ease;
+}
+
+nav.shrink h1 {
+  font-size: 3vw;
+  font-weight: 500;
+}
+
+.navbar-logo {
+  height: 2vw;
+  width: 2vw;
+  margin-left: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+nav.shrink .navbar-logo {
+  opacity: 0;
+  transform: scale(0.5);
+  pointer-events: none;
+}
+
+.navbar-contents {
+  display: flex;
+  gap: 1vw;
+}
+
+.navbar-contents button {
+  font-size: 1.2vw;
+  font-weight: 700;
+  padding: 0.4vw 0.8vw;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+nav div a {
+  color: rgb(255, 251, 0);
+  font-family: var(--font-2);
+  text-decoration: none;
+  background-color: #556c4690;
+  transition: background-color 0.3s ease;
+}
+
+nav div a:hover {
+  background-color: rgba(57, 48, 48, 0.114);
+}
+
+/* Button style */
+button.grow_skew_backward {
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+  border: 2px solid rgb(116, 102, 92);
+  color: rgb(255, 251, 0);
+  font-family: var(--font-5);
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 10%;
+  transition: color 0.3s ease;
+  z-index: 1;
+}
+
+button.grow_skew_backward::after {
+  content: "";
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(253, 252, 169, 0.823);
+  transform: skewX(45deg) scale(0, 1);
+  transition: transform 0.3s ease;
+  z-index: -1;
+}
+
+button.grow_skew_backward:hover::after {
+  transform: skewX(45deg) scale(1, 1);
+}
+
+button.grow_skew_backward:hover {
+  color: black;
+}
