@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Landing.css";
-import About from "./About";
-import { Element } from "react-scroll";
 
 function Landing() {
+  const [blogs, setBlogs] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await axios.get(
+          "https://your-backend-url/api/blogs?limit=4"
+        );
+        setBlogs(res.data);
+      } catch (err) {
+        console.error("Error fetching blogs:", err);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
   return (
     <div className="landing-layout">
       <video
@@ -19,38 +37,35 @@ function Landing() {
         <Typewriter
           className="parabellum"
           options={{
-            strings: ["Si Vis Pacem, Para Bellum"], // 27 chars
+            strings: ["Si Vis Pacem, Para Bellum"],
             autoStart: true,
             loop: true,
-            delay: 80, // typing: 27 * 80 = 2160 ms
-            deleteSpeed: 60, // deleting: 27 * 60 = 1620 ms
-            pauseFor: 1200, // total: 2160 + 1200 + 1620 = 4980 ms
+            delay: 80,
+            deleteSpeed: 60,
+            pauseFor: 1200,
           }}
         />
-
         <i>
           <Typewriter
             className="en_parabellum"
             options={{
-              strings: ["If you want peace, prepare for war"], // 36 chars
+              strings: ["If you want peace, prepare for war"],
               autoStart: true,
               loop: true,
-              delay: 60, // typing: 36 * 60 = 2160 ms
-              deleteSpeed: 45, // deleting: 36 * 45 = 1620 ms
-              pauseFor: 1200, // total: 2160 + 1200 + 1620 = 4980 ms
+              delay: 60,
+              deleteSpeed: 45,
+              pauseFor: 1200,
             }}
           />
         </i>
       </div>
 
       <div className="desc">
-        {/* <p id="credits">
-          video credits - 𝐁𝐚𝐭𝐭𝐥𝐞 𝐨𝐟 𝐁𝐚𝐤𝐡𝐦𝐮𝐭 | 𝐑𝐞𝐬𝐨𝐧𝐚𝐧𝐜𝐞 𝐱 𝐆𝐞𝐧𝐞𝐬𝐢𝐬 𝐬𝐥𝐨𝐰𝐞𝐝
-        </p> */}
         <p>
           <font size="6">
-            <b>A</b> website where I talk about war, geopolitics and its
-            devastating consequences for humanity.
+            <b>The</b> website where I talk about war, geopolitics, everything
+            encompassing from the smallest riots, failed coups to major and
+            brutal wars until now.
           </font>
         </p>
         <p>
@@ -71,17 +86,41 @@ function Landing() {
           today serve a stark reminder of the price humanity pays when diplomacy
           fails.
         </p>
+
+        {/* Recent Blogs Section */}
         <div className="blog_heading">
           <h1>Recent Blogs</h1>
         </div>
+
         <div className="blog-layout">
-          <div className="blog-cards">
-            <div className="blog-pfp"></div>
-            <div className="blog-title"></div>
-            <div className="blog-desc"></div>
-            <div className="blog-date"></div>
-          </div>
+          {blogs.map((blog) => (
+            <div className="blog-card" key={blog._id}>
+              <img
+                src={blog.coverImage}
+                alt={blog.title}
+                className="blog-pfp"
+              />
+              <h3 className="blog-title">
+                {blog.title.length > 30
+                  ? blog.title.substring(0, 30) + "..."
+                  : blog.title}
+              </h3>
+              <p className="blog-date">
+                {new Date(blog.createdAt).toLocaleDateString()}
+              </p>
+            </div>
+          ))}
         </div>
+
+        <div style={{ textAlign: "center", marginTop: "2rem" }}>
+          <button
+            className="subscribe-button"
+            onClick={() => navigate("/blogs")}
+          >
+            Read All Blogs
+          </button>
+        </div>
+
         <div className="subscribe-newsletter">
           <h2>Subscribe to my newsletter for regular updates</h2>
           <input type="email" placeholder="Enter your email here" />

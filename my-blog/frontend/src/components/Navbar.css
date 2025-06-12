@@ -5,13 +5,11 @@ nav {
   background-color: #0d0b0bef;
   color: rgb(255, 251, 0);
   display: flex;
-  justify-content: space-between;
   align-items: center;
   min-height: 8vw;
   padding: 1vw 2vw;
-  transition: all 0.3s ease;
   transition: all 0.3s ease-in-out;
-  height: auto; /* Allow flexible height */
+  height: auto;
 }
 
 nav.shrink {
@@ -52,32 +50,36 @@ nav.shrink .navbar-logo {
 .navbar-contents {
   display: flex;
   gap: 1vw;
+  margin-left: auto; /* Shift buttons to the right side */
+  margin-right: 2vw;
 }
 
-.navbar-contents button {
+.navbar-contents button,
+.navbar-login button {
   font-size: 1.2vw;
   font-weight: 700;
   padding: 0.4vw 0.8vw;
   border-radius: 6px;
   transition: all 0.3s ease;
+  background-color: #556c4690;
+  color: rgb(255, 251, 0);
+  font-family: var(--font-2);
+  border: none;
 }
 
 nav div a {
-  color: rgb(255, 251, 0);
-  font-family: var(--font-2);
   text-decoration: none;
-  background-color: #556c4690;
-  transition: background-color 0.3s ease;
 }
 
-nav div a:hover {
+nav div a:hover,
+.navbar-contents button:hover,
+.navbar-login button:hover {
   background-color: rgba(57, 48, 48, 0.114);
 }
 
-/* Button style */
+/* Shared style for grow_skew_backward */
 button.grow_skew_backward {
   position: relative;
-  display: inline-block;
   background-color: transparent;
   border: 2px solid rgb(116, 102, 92);
   color: rgb(255, 251, 0);
@@ -108,4 +110,18 @@ button.grow_skew_backward:hover::after {
 
 button.grow_skew_backward:hover {
   color: black;
+}
+
+/* Login section */
+.navbar-login {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+.user-name {
+  font-family: var(--font-2);
+  font-size: 1vw;
+  margin-right: 0.5vw;
+  color: #f0f0f0;
 }

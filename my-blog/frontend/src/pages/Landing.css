@@ -53,11 +53,39 @@
 
 /* Blog layout cards*/
 .blog-layout {
-  height: 30vw;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2vw;
+}
+
+.blog-card {
+  background-color: #222;
+  border: 1px solid #555;
+  border-radius: 10px;
+  width: 22vw;
+  padding: 1vw;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.blog-pfp {
   width: 100%;
-  background-color: aliceblue;
+  height: 12vw;
+  object-fit: cover;
   border-radius: 5px;
-  font-family: var(--font-5);
+}
+
+.blog-title {
+  font-family: var(--font-2);
+  font-size: 1.2vw;
+  margin: 1vw 0 0.5vw 0;
+  color: yellow;
+}
+
+.blog-date {
+  font-size: 0.9vw;
+  color: #aaa;
 }
 
 /* subscribe-newsletter */
