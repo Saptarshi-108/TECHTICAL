@@ -50,6 +50,16 @@
   width: 85vw;
   z-index: 1;
 }
+.desc {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.desc.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Blog layout cards*/
 .blog-layout {
@@ -311,4 +321,34 @@
   .about-me-desc {
     font-size: 3vw;
   }
+}
+
+.carousel-wrapper {
+  margin-top: 7vw;
+  margin-bottom: 7vw;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 20vw;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.8s ease-in-out, box-shadow 0.8s ease;
+}
+
+.carousel-slide:hover .carousel-image {
+  transform: scale(1.03); /* subtle zoom on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+#readmore {
+  height: 4vw;
+  width: auto;
+  font-size: 1.2vw;
+  font-weight: 500;
+  font-family: var(--font-1);
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 5px;
 }

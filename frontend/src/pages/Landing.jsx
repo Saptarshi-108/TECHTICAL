@@ -1,12 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Typewriter from "typewriter-effect";
 import { useNavigate } from "react-router-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import axios from "axios";
 import "./Landing.css";
 
 function Landing() {
   const [blogs, setBlogs] = useState([]);
   const navigate = useNavigate();
+  const descRef = useRef(null);
+  const [fadeIn, setFadeIn] = useState(false);
+
+  const carouselImages = [
+    "/assets/carousel/r4zxc5zj2m3f1.jpeg",
+    "/assets/carousel/cibi-chakravarthi-LJOxm6ILgwg-unsplash.jpg",
+    "/assets/carousel/daniel-VMXXvU1oKw8-unsplash.jpg",
+    "/assets/carousel/g5f95to5ni6f1.jpeg",
+    "/assets/carousel/jametlene-reskp-1PRCqwqTxn0-unsplash.jpg",
+    "/assets/carousel/kevin-schmid-DIq7Bs3ga2s-unsplash.jpg",
+    "/assets/carousel/specna-arms-BHtfQxJJBbE-unsplash.jpg",
+    "/assets/carousel/vony-razom-OMQB3qvCTq4-unsplash.jpg",
+    "/assets/carousel/xn1gkmagxh3f1.jpeg",
+  ];
+
+  const carouselSettings = {
+    dots: true,
+    infinite: true,
+    speed: 1700,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    cssEase: "ease-in-out",
+    arrows: true,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
 
   useEffect(() => {
     const fetchBlogs = async () => {
@@ -21,6 +61,25 @@ function Landing() {
     };
 
     fetchBlogs();
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setFadeIn(entry.isIntersecting);
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (descRef.current) {
+      observer.observe(descRef.current);
+    }
+
+    return () => {
+      if (descRef.current) observer.unobserve(descRef.current);
+    };
   }, []);
 
   return (
@@ -60,7 +119,7 @@ function Landing() {
         </i>
       </div>
 
-      <div className="desc">
+      <div ref={descRef} className={`desc ${fadeIn ? "fade-in" : ""}`}>
         <p>
           <font size="6">
             <b>The</b> website where I talk about war, geopolitics, everything
@@ -72,6 +131,7 @@ function Landing() {
           The website covers topics on war, weaponry, recent geopolitical
           events, war strategies, and the devastation recent wars caused.{" "}
           <font size="5" color="red">
+            <br />
             <br />
             Some of the contents might be disturbing.
             <br />
@@ -87,7 +147,20 @@ function Landing() {
           fails.
         </p>
 
-        {/* Recent Blogs Section */}
+        <div className="carousel-wrapper">
+          <Slider {...carouselSettings}>
+            {carouselImages.map((src, index) => (
+              <div key={index} className="carousel-slide">
+                <img
+                  src={src}
+                  alt={`carousel-${index}`}
+                  className="carousel-image"
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
+
         <div className="blog_heading">
           <h1>Recent Blogs</h1>
         </div>
@@ -114,7 +187,8 @@ function Landing() {
 
         <div style={{ textAlign: "center", marginTop: "2rem" }}>
           <button
-            className="subscribe-button"
+            className="grow_skew_backward"
+            id="readmore"
             onClick={() => navigate("/blogs")}
           >
             Read All Blogs
