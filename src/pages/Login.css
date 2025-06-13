@@ -1,0 +1,70 @@
+/* Apply general styling */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4vw;
+  min-height: 100vh;
+  background-color: #121212;
+  color: #f4f4f4;
+  font-family: var(--font-2);
+}
+
+.login-page h2 {
+  font-size: 2.5rem;
+  font-family: var(--font-1);
+  margin-bottom: 2rem;
+  color: #ffeb3b;
+}
+
+/* Form layout */
+.login-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.05);
+}
+
+.login-page input {
+  padding: 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: #292929;
+  color: #fff;
+  font-family: var(--font-2);
+}
+
+.login-page input::placeholder {
+  color: #ccc;
+}
+
+.login-page button {
+  padding: 0.8rem;
+  background-color: #ffeb3b;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-5);
+  transition: background-color 0.3s;
+}
+
+.login-page button:hover {
+  background-color: #fdd835;
+}
+
+.login-page p {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #f44336;
+  font-family: var(--font-2);
+  text-align: center;
+}

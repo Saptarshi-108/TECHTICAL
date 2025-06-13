@@ -1,0 +1,18 @@
+/* App.css */
+:root {
+  --font-1: "Black Ops One", system-ui;
+  --font-2: "Montserrat", sans-serif;
+  --font-3: "Catamaran", sans-serif;
+  --font-4: "Roboto", sans-serif;
+  --font-5: "Chakra Petch", sans-serif; /* Fix: capital 'C' and space in correct font name */
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(44, 40, 40);
+  color: white; /* Optional: ensures text is visible */
+}
