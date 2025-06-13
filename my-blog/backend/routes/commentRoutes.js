@@ -1,12 +1,12 @@
 const express = require("express");
+const router = express.Router({ mergeParams: true });
 const {
-  getCommentsForBlog,
-  addComment,
+  getComments,
+  postComment,
 } = require("../controllers/commentController");
+const { protect } = require("../middleware/authMiddleware");
 
-const router = express.Router();
-
-router.get("/:blogId", getCommentsForBlog);
-router.post("/:blogId", addComment);
+router.get("/", getComments); // Public: fetch comments
+router.post("/", protect, postComment); // Authenticated: post comment
 
 module.exports = router;

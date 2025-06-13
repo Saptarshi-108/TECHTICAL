@@ -1,24 +1,12 @@
 const express = require("express");
-const {
-  getAllBlogs,
-  getBlogById,
-  createBlog,
-  updateBlog,
-  deleteBlog,
-} = require("../controllers/blogController");
-
-const { protect } = require("../middleware/authMiddleware");
-const { authorizeRoles } = require("../middleware/roleMiddleware");
-
 const router = express.Router();
+const { getAllBlogs, getBlogById } = require("../controllers/blogController");
+const commentRoutes = require("./commentRoutes");
 
-// Public (reader-level) access
 router.get("/", getAllBlogs);
 router.get("/:id", getBlogById);
 
-// Admin-only access
-router.post("/create", protect, authorizeRoles("admin"), createBlog);
-router.put("/:id", protect, authorizeRoles("admin"), updateBlog);
-router.delete("/:id", protect, authorizeRoles("admin"), deleteBlog);
+// Mount comment routes under blog/:id/comments
+router.use("/:blogId/comments", commentRoutes);
 
 module.exports = router;
