@@ -8,7 +8,7 @@ Readers can browse detailed articles, view interactive media (images, videos, au
 
 ## 🔗 Live Demo
 
-> [https://your-frontend-url.vercel.app](https://your-frontend-url.vercel.app)
+> [TECHTICAL - Live Website Link](https://techtical.vercel.app/)
 
 ---
 
