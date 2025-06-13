@@ -1,0 +1,61 @@
+.comments-section {
+  margin-top: 3rem;
+  padding: 1.5rem;
+  border-top: 2px solid #ccc;
+}
+
+.comment {
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  background: #f5f5f5;
+  border-radius: 6px;
+}
+
+.comment strong {
+  color: #333;
+}
+
+.comment span {
+  font-size: 0.8rem;
+  color: #666;
+  margin-left: 0.5rem;
+}
+
+.comment p {
+  margin: 0.4rem 0 0;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+
+.comment-form textarea {
+  resize: vertical;
+  min-height: 80px;
+  padding: 0.8rem;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  border-radius: 5px;
+}
+
+.comment-form button {
+  align-self: flex-end;
+  padding: 0.6rem 1.2rem;
+  background: #0d0b0b;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.no-comments {
+  font-style: italic;
+  color: #888;
+}
+
+.login-req {
+  margin-top: 1rem;
+  font-style: italic;
+}
