@@ -20,7 +20,7 @@ const About = () => {
       </p>
       <div className="about-me">
         <div className="about-pfp">
-          <img src="public\assets\logo_tactical.png"></img>
+          <img src="/assets/logo_tactical.png"></img>
         </div>
         <div className="about-me-desc">
           <p id="intro">

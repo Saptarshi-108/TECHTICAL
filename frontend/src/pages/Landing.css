@@ -23,7 +23,7 @@
   margin-top: 20vw;
   font-family: var(--font-1);
   font-size: 5vw;
-  color: rgba(233, 254, 111, 0.919);
+  color: rgba(233, 254, 111, 0.958);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.893);
   z-index: 1;
   text-align: center;
@@ -31,7 +31,7 @@
 
 .quote i {
   font-size: 4vw;
-  color: rgba(228, 237, 206, 0.904);
+  color: rgba(228, 237, 206, 0.941);
 }
 /* .desc #index {
   color: rgb(188, 255, 143);
@@ -128,7 +128,8 @@
 }
 
 .subscribe-newsletter h2 {
-  font-size: 1.8vw;
+  font-size: 2.5vw;
+  padding-bottom: 5px;
   font-weight: 800;
   color: rgb(255, 237, 213);
   margin: 0;

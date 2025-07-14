@@ -15,4 +15,6 @@ html,
   padding: 0;
   background-color: rgb(44, 40, 40);
   color: white; /* Optional: ensures text is visible */
+  overflow-x: hidden !important;
+  scroll-behavior: smooth;
 }

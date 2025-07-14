@@ -1,7 +1,9 @@
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
 
 import Home from "./pages/Landing";
 import About from "./pages/About";
@@ -17,6 +19,15 @@ import AdminBlogList from "./admin/pages/AdminBlogList";
 import "./App.css";
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2500); // Show loader for 2.5s
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) return <Loader />;
+
   return (
     <>
       <Navbar />

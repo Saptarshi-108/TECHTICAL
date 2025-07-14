@@ -9,7 +9,7 @@ const Blogpage = () => {
 
   useEffect(() => {
     axios
-      .get("https://techtical.onrender.com/api/blogs")
+      .get("http://localhost:5000/api/blogs")
       .then((res) => setBlogs(res.data))
       .catch(() => setBlogs([]));
   }, []);

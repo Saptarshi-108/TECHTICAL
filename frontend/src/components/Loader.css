@@ -1,0 +1,48 @@
+.global-loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100vw;
+  height: 100vh;
+  background-color: #121212;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.loader {
+  position: relative;
+  height: 25px;
+  width: 30vw;
+  background: rgba(18, 19, 8, 0.833);
+  overflow: hidden;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+
+.loader-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: rgba(255, 251, 0, 0.912);
+  color: rgba(18, 19, 8, 0.833);
+  font-weight: 900;
+  font-size: 1.2vw;
+  font-family: var(--font-2);
+  display: flex;
+  align-items: center;
+  padding-left: 1vw;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+
+.loader-percent {
+  color: #f4f4f4;
+  font-family: var(--font-2);
+  font-size: 1.2vw;
+  font-weight: 600;
+}

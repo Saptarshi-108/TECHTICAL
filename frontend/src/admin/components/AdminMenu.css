@@ -1,0 +1,35 @@
+.admin-menu {
+  background-color: #1a1a1a;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  margin-bottom: 2rem;
+  font-family: var(--font-2);
+}
+
+.admin-menu-title {
+  color: #ffeb3b;
+  font-size: 1.5rem;
+  font-family: var(--font-1);
+  margin-bottom: 1rem;
+}
+
+.admin-menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.admin-menu-list li a {
+  color: #ccc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.admin-menu-list li.active a,
+.admin-menu-list li a:hover {
+  color: #ffeb3b;
+}
