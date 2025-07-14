@@ -8,10 +8,10 @@ const blogSchema = new mongoose.Schema({
   content: {
     type: String,
     required: true,
-  }, // HTML content from TinyMCE
+  },
   coverImage: {
     type: String,
-  }, // filename or hosted URL
+  },
   author: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
@@ -20,6 +20,10 @@ const blogSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  coverImage: {
+    type: String,
+    required: true,
   },
 });
 
