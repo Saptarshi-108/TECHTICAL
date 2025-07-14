@@ -1,12 +1,11 @@
 const express = require("express");
-const {
-  getMediaForBlog,
-  uploadMedia,
-} = require("../controllers/mediaController");
-
 const router = express.Router();
+const mediaControllers = require("../controllers/mediaController");
+const upload = require("../middleware/upload");
 
-router.get("/:blogId", getMediaForBlog);
-router.post("/", uploadMedia);
+router.get("/:blogId", mediaControllers.getMediaForBlog);
+
+// Accept single file upload with field "media"
+router.post("/upload", upload.single("media"), mediaControllers.uploadMedia);
 
 module.exports = router;
