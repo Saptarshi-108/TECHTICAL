@@ -44,7 +44,7 @@ const About = () => {
             <i>
               P.S. - I did the silhoutte by myself(left). I use AutoDesk
               SketchBook Pro, if you wish to see more of my art. You can visit
-              my website here at [url]
+              my website here at <a href="https://myarthouse.netlify.app/">My Art Portfolio</a>
             </i>
           </p>
         </div>
@@ -54,3 +54,4 @@ const About = () => {
 };
 
 export default About;
+
